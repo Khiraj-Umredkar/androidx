@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dog_navigation"
+    app:startDestination="@id/listFragment">
+
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.example.androidxdogs.view.ListFragment"
+        tools:layout="@layout/fragment_list"
+        android:label="ListFragment" >
+        <action
+            android:id="@+id/action_listFragment_to_detailedFragment"
+            app:destination="@id/detailedFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_settingFragment"
+            app:destination="@id/settingFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/detailedFragment"
+        android:name="com.example.androidxdogs.view.DetailedFragment"
+        tools:layout="@layout/fragment_detailed"
+        android:label="DetailedFragment" >
+        <action
+            android:id="@+id/action_detailedFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+        <argument
+            android:name="doguuid"
+            android:defaultValue="0"
+            app:argType="integer"/>
+    </fragment>
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.example.androidxdogs.view.SettingFragment"
+        android:label="SettingFragment" />
+</navigation>
